@@ -2,7 +2,8 @@ import React from 'react';
 //import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import Posts from './Posts';
+import Body from './Body';
+import { generateKeyPair } from 'crypto';
 /*
   import { Link } from 'react-router-dom';
   <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
@@ -10,6 +11,7 @@ import Posts from './Posts';
 
 function App(){
   var styles = {
+    backgroundColor: "gray"
   };
   return (
     <div style={styles}>
@@ -17,7 +19,7 @@ function App(){
         font-family: Helvetica;
       `}</style>
       <Navbar/>
-      <Posts/>
+      <Body/>
       {/* <Switch>
         <Route exact path='/' component={} />
       </Switch> */}

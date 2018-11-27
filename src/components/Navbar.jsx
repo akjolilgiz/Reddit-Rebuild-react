@@ -4,12 +4,10 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
-        Reddit<i className="fa fa-reddit" />{" "}
+        Reddit
+        <i className="fa fa-reddit" />{" "}
       </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-      >
+      <button className="navbar-toggler" type="button">
         <span className="navbar-toggler-icon" />
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">

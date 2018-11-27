@@ -1,30 +1,46 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
-import Moment from 'moment';
+import React from "react";
+import { PropTypes } from "prop-types";
+import Moment from "moment";
 
-const Post = (props) => {
+const Post = props => {
   return (
-    <div>
-      <h3>{props.userName}</h3>
-      <h4>{displayTimeOpen(props.datePosted)}</h4>
-      <h3>{props.title}</h3>
-      <h1>{props.content}</h1>
-      <h5>{props.upVote}</h5>
-      <h5>{props.downVote}</h5>
-
+    <div className="card mb-3">
+      <div className="row w-100 no-gutters">
+        <div className="col-1" style={{ backgroundColor:"#eee", textAlign:"center"}}>
+          <i className="fa fa-arrow-up" onClick={props.onUpVote} />
+          <p className="mt-3">{props.voteCount}</p>
+          <i className="fa fa-arrow-down" onClick={props.onDownVote} />
+        </div>
+        <div className="col-11">
+        <div className="ml-3">
+          <p className="card-text text-secondary">
+            <i className="fa fa-user-circle"></i>
+            {props.userName} posted {displayTimeOpen(props.datePosted)} ago{" "}
+          </p>
+          <h5 className="card-title">
+            <strong>{props.title}</strong>
+          </h5>
+          <img className="w-90" src={props.image} alt="image"/>
+          <p className="card-text">{props.content}</p>
+          <button onClick = {props.onDelete}>Delete</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 function displayTimeOpen(timeOpened) {
-    return timeOpened.from(new Moment(), true);
-  }
-Post.propTypes={
+  return timeOpened.from(new Moment(), true);
+}
+Post.propTypes = {
   userName: PropTypes.string,
-  datePosted: PropTypes.instanceOf(Moment), 
-  title: PropTypes.string, 
+  datePosted: PropTypes.instanceOf(Moment),
+  title: PropTypes.string,
   content: PropTypes.string,
-  upVote: PropTypes.number, 
-  downVote: PropTypes.number
+  voteCount: PropTypes.number,
+  onUpVote: PropTypes.func,
+  onDownVote: PropTypes.func,
+  onDelete: PropTypes.func
 };
 export default Post;
