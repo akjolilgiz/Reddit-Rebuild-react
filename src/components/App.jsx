@@ -1,7 +1,8 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
-
+import Navbar from './Navbar';
+import Posts from './Posts';
 /*
   import { Link } from 'react-router-dom';
   <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
@@ -15,7 +16,8 @@ function App(){
       <style jsx>{`
         font-family: Helvetica;
       `}</style>
-      Reddit
+      <Navbar/>
+      <Posts/>
       {/* <Switch>
         <Route exact path='/' component={} />
       </Switch> */}
